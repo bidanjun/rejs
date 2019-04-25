@@ -21,3 +21,19 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# add some other files
+/lib
+debug.log*
+*.log
+*.db
+
+## vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# snaphots testing
+/**/__snapshots__
+/**/__snapshots__

@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+//import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+//we could  importing modules using absolute paths here,we set it in jsconfig.json
+import App from 'examples'
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

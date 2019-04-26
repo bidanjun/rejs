@@ -1,13 +1,19 @@
 {
-  "include": ["src"],
+  "include": ["src","**/*.test.js"],
   "compilerOptions": {
       "baseUrl": "src",
       "target": "ES6",
       "module": "commonjs",
       "allowSyntheticDefaultImports": true
   },
+  "typeAcquisition": {
+    "include": [
+        "jest"
+    ]
+  },
   "exclude": [
       "dist",
       "node_modules"
   ]
 }
+

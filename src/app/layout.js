@@ -72,7 +72,7 @@ const Layout = ({ classes, AppBar, LeftDrawer, RightDrawer, WorkSpace, ...props 
             </div>
             <div className={classes.downside}>
                 {open && (<div className={classes.LeftDrawer}>
-                    <LeftDrawer />
+                    <LeftDrawer open={open} />
                 </div>)}
 
                 <div className={classes.workSpaceShift}>

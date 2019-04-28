@@ -2,6 +2,8 @@ import React from 'react';
 import Drawer from '@material-ui/core/Drawer'
 import { withStyles } from '@material-ui/core/styles';
 
+import LeftList from './leftList'
+
 const drawerWidth = 240;
 const styles = theme => ({
   drawerPaper: {
@@ -30,7 +32,7 @@ const leftDrawer = (props) => {
     classes={{
       paper: props.open ? classes.drawerPaper : classes.drawerPaperShift,
     }}>
-    left drawer
+    <LeftList />
   </Drawer>)
 }
 export default withStyles(styles)(leftDrawer);

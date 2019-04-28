@@ -7,7 +7,8 @@ import Layout from './layout'
 
 import AppBar from './appbar'
 //const AppBar = () => (<div>appbar</div>)
-const LeftDrawer = () => (<div>left Drawer</div>)
+//const LeftDrawer = () => (<div>left Drawer</div>)
+import LeftDrawer from './drawer'
 const RightDrawer = () => (<div>right Drawer</div>)
 const WorkSpace = () => (<div>work Space</div>)
 

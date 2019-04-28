@@ -22,15 +22,16 @@ drawerPaperShift: {
 })
 // Drawer自身的样式，只涉及其宽度，在这里处理
 // props.open，实际上可使用状态中的open，但这里只有一个级别，直接通过属性传递过来即可
-const leftDrawer = (props) => {
-  //由于不是modal类型，open在这里没什么作用。
-  const { classes } = props;
+const leftDrawer = ({container, classes,open,handleDrawerClose}) => {
+
   //console.log('open=',props.open)
   return (<Drawer
-    open={props.open}
-    variant= "persistent"
+    container={container}
+    open={open}
+    onClose={handleDrawerClose}
+    variant= "temporary"
     classes={{
-      paper: props.open ? classes.drawerPaper : classes.drawerPaperShift,
+      paper: open ? classes.drawerPaper : classes.drawerPaperShift,
     }}>
     <LeftList />
   </Drawer>)

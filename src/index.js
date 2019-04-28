@@ -5,7 +5,8 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 //we could  importing modules using absolute paths here,we set it in jsconfig.json
-import App from 'examples'
+//import App from 'examples'
+import App from './app'
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

@@ -29,7 +29,7 @@ const leftDrawer = ({container, classes,open,handleDrawerClose}) => {
     container={container}
     open={open}
     onClose={handleDrawerClose}
-    variant= "temporary"
+    variant="teamporary"
     classes={{
       paper: open ? classes.drawerPaper : classes.drawerPaperShift,
     }}>

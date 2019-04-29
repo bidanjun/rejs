@@ -19,7 +19,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 
 const styles = theme => ({
   appBar: {
-    //zIndex: theme.zIndex.drawer + 1,
+    zIndex: theme.zIndex.drawer + 1,
     position: 'relative'
   },
 

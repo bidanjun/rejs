@@ -11,7 +11,8 @@ const styles = theme => ({
     },
     upside: {
         flexBasic: 'auto',
-        backgroundColor: 'red'
+        backgroundColor: 'red',
+        zIndex: theme.zIndex.drawer + 1,
     },
     downside: {
         flexGrow: 1,

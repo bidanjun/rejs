@@ -9,10 +9,15 @@ const styles = theme => ({
         flexGrow: 1,
         backgroundColor: 'green',
     },
+
+    //由于upside包含appbar
+    //因此，需要将其设为 theme.zIndex.modal + 1,
+    //这样临时的drawer才起作用
+    //其它模式drawer是zIndex.drawer
     upside: {
         flexBasic: 'auto',
         backgroundColor: 'red',
-        zIndex: theme.zIndex.drawer + 1,
+        zIndex: theme.zIndex.modal + 1,
     },
     downside: {
         flexGrow: 1,
@@ -44,6 +49,7 @@ const styles = theme => ({
     LeftDrawer: {
         backgroundColor: 'blue',
         width: drawerWidth,
+        height:'100%'
     },
     RightDrawer: {
         backgroundColor: 'green',

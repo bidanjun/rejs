@@ -17,10 +17,12 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 
 
-const styles = theme => ({
+const styles = theme =>{ 
+  console.log('theme.zIndex',theme.zIndex)
+  
+  return ({
   appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-    position: 'relative'
+    zIndex: theme.zIndex.tooltip + 1,
   },
 
   //这里标题将扩展，login按钮在appbar最右端
@@ -28,12 +30,13 @@ const styles = theme => ({
     flexGrow: 1,
   },
   toolbar: theme.mixins.toolbar,
-})
+})}
 
 const MenuBar = (props) => {
   const { classes } = props;
+  console.log('classes=',classes)
   const {open, logged,handleSetLogged,handleDrawerOpen,toggleRightDrawer} = props
-  return (<AppBar className={classes.appBar}>
+  return (<AppBar position="absolute" className={classes.appBar}>
       <Toolbar>
         <IconButton
           color="inherit"
@@ -71,4 +74,4 @@ const MenuBar = (props) => {
       </Toolbar>
       </AppBar>)
 }
-export default withStyles(styles)(MenuBar);
+export default withStyles(styles, { withTheme: true })(MenuBar);

@@ -40,7 +40,7 @@ const styles = theme => ({
         //backgroundColor: theme.palette.background.default,
         flexGrow: 1,
         display: 'flex',
-        //flexDirection: 'column',
+        flexDirection: 'column',
         transition: theme.transitions.create('flex', {
             easing: theme.transitions.easing.easeOut,
             duration: theme.transitions.duration.enteringScreen,
@@ -49,7 +49,8 @@ const styles = theme => ({
     LeftDrawer: {
         backgroundColor: 'blue',
         width: drawerWidth,
-        height:'100%'
+        height:'100%',
+        display:'flex'
     },
     RightDrawer: {
         backgroundColor: 'green',

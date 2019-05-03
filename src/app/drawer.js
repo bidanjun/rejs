@@ -9,16 +9,21 @@ const styles = theme => ({
   drawerPaper: {
     position: 'relative',
     height: '100%',
+    //flexGrow:1,
     width: drawerWidth,
     backgroundColor:'red'
 },
 drawerPaperShift: {
     position: 'relative',
     height: '100%',
+    //flexGrow:1,
     width: 0,    
     backgroundColor:'red',
     board:0,
 }, 
+drawerModal:{
+  position: 'relative',
+}
 })
 // Drawer自身的样式，只涉及其宽度，在这里处理
 // props.open，实际上可使用状态中的open，但这里只有一个级别，直接通过属性传递过来即可
@@ -29,10 +34,14 @@ const leftDrawer = ({container, classes,open,handleDrawerClose}) => {
     container={container}
     open={open}
     onClose={handleDrawerClose}
-    variant="teamporary"
+    //variant="temporary"
+    variant="permanent"
+    //这里覆盖paper的样式
     classes={{
       paper: open ? classes.drawerPaper : classes.drawerPaperShift,
-    }}>
+      //modal:classes.drawerModal
+    }}
+    >
     <LeftList />
   </Drawer>)
 }

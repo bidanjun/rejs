@@ -20,9 +20,11 @@ import FormGroup from '@material-ui/core/FormGroup';
 const styles = theme =>{ 
   console.log('theme.zIndex',theme.zIndex)
   
+  //appbar隶属于一个div，该div设置了zIndex，用于覆盖drawer
+  //因此appbar自己不用设置
   return ({
   appBar: {
-    zIndex: theme.zIndex.tooltip + 1,
+    //zIndex: theme.zIndex.tooltip + 1,
   },
 
   //这里标题将扩展，login按钮在appbar最右端
@@ -34,9 +36,9 @@ const styles = theme =>{
 
 const MenuBar = (props) => {
   const { classes } = props;
-  console.log('classes=',classes)
+  //console.log('classes=',classes)
   const {open, logged,handleSetLogged,handleDrawerOpen,toggleRightDrawer} = props
-  return (<AppBar position="absolute" className={classes.appBar}>
+  return (<AppBar position='relative' className={classes.appBar}>
       <Toolbar>
         <IconButton
           color="inherit"

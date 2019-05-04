@@ -31,7 +31,7 @@ const leftDrawer = ({container,isMobile,  classes,open,handleDrawerClose}) => {
    
   const variant=isMobile?"temporary":"permanent";
 
-  //console.log('open=',props.open)
+  console.log('open=',open)
   return (<Drawer
     container={container}
     open={open}

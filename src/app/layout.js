@@ -66,14 +66,16 @@ const styles = theme => ({
 //这样的好处是样式无需传递给组件
 const Layout = ({ classes, AppBar, LeftDrawer, RightDrawer, WorkSpace, ...props }) => {
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'),{noSsr:true});
+    const initOpen=!isMobile
 
-    const [open, setOpen] = useState(!isMobile)
+    const [open, setOpen] = useState(initOpen)
     const [openRight, setOpenRight] = useState(false)
     const [logged, setLogged] = useState(false)
 
 
-    console.log('breack',isMobile)
+    //小屏幕时这里执行了两次。。。首次isMobile为false，第二次为true
+    console.log('isMobile=',isMobile,'initOpen=',initOpen)
     return (
         <div className={classes.root}>
             <div className={classes.upside}>

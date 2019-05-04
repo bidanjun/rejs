@@ -13,9 +13,11 @@ import { withStyles } from '@material-ui/core/styles';
     height:'100%'
   });
 
-const drawer =({classes})=> (
+//这里简单的使用toolbar构建一个和appbar高度相同的div
+//由此，被appbar覆盖，而不会覆盖实际的内容
+const drawer =({classes,variant})=> (
   <div>
-    <div className={classes.toolbar} />
+    {variant==='temporary' && <div className={classes.toolbar} />}
     <Divider />
     <List>
       {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (

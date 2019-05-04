@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
+import { useTheme } from '@material-ui/core/styles';
 
 const drawerWidth = 240;
 const styles = theme => ({
@@ -62,9 +65,15 @@ const styles = theme => ({
 //这样，其位置在此地统一处理，组件自身面对的是固定的位置、大小，在内部如何居中才需要自行控制
 //这样的好处是样式无需传递给组件
 const Layout = ({ classes, AppBar, LeftDrawer, RightDrawer, WorkSpace, ...props }) => {
-    const [open, setOpen] = useState(false)
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+    const [open, setOpen] = useState(!isMobile)
     const [openRight, setOpenRight] = useState(false)
     const [logged, setLogged] = useState(false)
+
+
+    console.log('breack',isMobile)
     return (
         <div className={classes.root}>
             <div className={classes.upside}>
@@ -79,8 +88,8 @@ const Layout = ({ classes, AppBar, LeftDrawer, RightDrawer, WorkSpace, ...props 
                 />
             </div>
             <div className={classes.downside}>
-                {open && (<div className={classes.LeftDrawer}>
-                    <LeftDrawer open={open} handleDrawerClose={() => setOpen(false)} />
+               {open &&(<div className={classes.LeftDrawer}>
+                    <LeftDrawer open={open} isMobile={isMobile} handleDrawerClose={() => setOpen(false)} />
                 </div>)}
 
                 <div className={classes.workSpaceShift}>

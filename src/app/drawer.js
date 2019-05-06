@@ -1,4 +1,5 @@
 import React from 'react';
+import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer'
 import { withStyles } from '@material-ui/core/styles';
 
@@ -44,6 +45,8 @@ const leftDrawer = ({container,isMobile,  classes,open,handleDrawerClose,LeftLis
       //modal:classes.drawerModal
     }}
     >
+    {variant==='temporary' && <div className={classes.toolbar} />}
+    <Divider />
     <LeftList variant={variant}/>
   </Drawer>)
 }

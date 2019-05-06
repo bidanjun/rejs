@@ -17,8 +17,7 @@ import { withStyles } from '@material-ui/core/styles';
 //由此，被appbar覆盖，而不会覆盖实际的内容
 const drawer =({classes,variant})=> (
   <div>
-    {variant==='temporary' && <div className={classes.toolbar} />}
-    <Divider />
+
     <List>
       {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
         <ListItem button key={text}>

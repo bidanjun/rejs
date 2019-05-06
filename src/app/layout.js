@@ -69,14 +69,15 @@ const styles = theme => ({
 //这样的好处是样式无需传递给组件
 const Layout = ({ classes, AppBar, LeftDrawer, RightDrawer, WorkSpace, ...props }) => {
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'),{noSsr:true});
-    if (prevIsMobile===null)
-      prevIsMobile=isMobile;
+    const isMobile = useMediaQuery(theme.breakpoints.down('xs'),{noSsr:true});
+
 
     const [open, setOpen] = useState(!isMobile)
     const [openRight, setOpenRight] = useState(false)
     const [logged, setLogged] = useState(false)
 
+    if (prevIsMobile===null)
+    prevIsMobile=isMobile;
     // 此时触发大小屏幕切换事件
     if (prevIsMobile !== isMobile) {
         prevIsMobile = isMobile
@@ -84,7 +85,7 @@ const Layout = ({ classes, AppBar, LeftDrawer, RightDrawer, WorkSpace, ...props 
             setOpen(false)
         }
     }
-    
+
     //小屏幕时这里执行了两次。。。首次isMobile为false，第二次为true
     return (
         <div className={classes.root}>

@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import { useTheme } from '@material-ui/core/styles';
+import LeftDrawer from './drawer'
 
 const drawerWidth = 240;
 
@@ -67,7 +68,7 @@ const styles = theme => ({
 //我们用div包装四个组件
 //这样，其位置在此地统一处理，组件自身面对的是固定的位置、大小，在内部如何居中才需要自行控制
 //这样的好处是样式无需传递给组件
-const Layout = ({ classes, AppBar, LeftDrawer, RightDrawer, WorkSpace, ...props }) => {
+const Layout = ({ classes, AppBar, LeftList, RightDrawer, WorkSpace, ...props }) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('xs'),{noSsr:true});
 
@@ -102,7 +103,7 @@ const Layout = ({ classes, AppBar, LeftDrawer, RightDrawer, WorkSpace, ...props 
             </div>
             <div className={classes.downside}>
                {open &&(<div className={classes.LeftDrawer}>
-                    <LeftDrawer open={open} isMobile={isMobile} handleDrawerClose={() => setOpen(false)} />
+                    <LeftDrawer LeftList={LeftList} open={open} isMobile={isMobile} handleDrawerClose={() => setOpen(false)} />
                 </div>)}
 
                 <div className={classes.workSpaceShift}>

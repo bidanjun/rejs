@@ -5,6 +5,9 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 
 const drawerWidth = 240;
+
+//记录prevWidth每次变化
+let prevIsMobile=null;
 const styles = theme => ({
     root: {
         display: 'flex',
@@ -67,15 +70,22 @@ const styles = theme => ({
 const Layout = ({ classes, AppBar, LeftDrawer, RightDrawer, WorkSpace, ...props }) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'),{noSsr:true});
-    const initOpen=!isMobile
+    if (prevIsMobile===null)
+      prevIsMobile=isMobile;
 
-    const [open, setOpen] = useState(initOpen)
+    const [open, setOpen] = useState(!isMobile)
     const [openRight, setOpenRight] = useState(false)
     const [logged, setLogged] = useState(false)
 
-
+    // 此时触发大小屏幕切换事件
+    if (prevIsMobile !== isMobile) {
+        prevIsMobile = isMobile
+        if (isMobile && open) {
+            setOpen(false)
+        }
+    }
+    
     //小屏幕时这里执行了两次。。。首次isMobile为false，第二次为true
-    console.log('isMobile=',isMobile,'initOpen=',initOpen)
     return (
         <div className={classes.root}>
             <div className={classes.upside}>

@@ -5,14 +5,18 @@ import { withStyles } from '@material-ui/core/styles';
 import withRoot from '../withRoot';
 import Layout from './layout'
 
+import WorkSpace from './workSpace'
 import LeftList from './leftList'
 
 import AppBar from './appbar'
+import mainRouter from './router'
+import {compose, provider } from 'reday';
+
 //const AppBar = () => (<div>appbar</div>)
 //const LeftDrawer = () => (<div>left Drawer</div>)
 
 const RightDrawer = () => (<div>right Drawer</div>)
-const WorkSpace = () => (<div>work Space</div>)
+//const WorkSpace = () => (<div>work Space</div>)
 
 const styles = theme => ({
   root: {
@@ -30,4 +34,10 @@ App.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withRoot(withStyles(styles)(App));
+console.log('mainRouter=',mainRouter)
+console.log('provider(mainRouter)=',mainRouter.provider)
+export default compose(
+  withRoot,
+  provider(mainRouter),  
+  withStyles(styles)
+)(App);

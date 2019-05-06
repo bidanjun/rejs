@@ -7,7 +7,8 @@
     "@material-ui/icons": "^4.0.0-beta.0",
     "classnames": "^2.2.6",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "reday": "^0.5.24"
   },
   "devDependencies": {
     "react-scripts": "3.0.0"
